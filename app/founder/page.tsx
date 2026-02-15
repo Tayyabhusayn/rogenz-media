@@ -1,97 +1,143 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { Mail, Linkedin, Twitter, Quote } from 'lucide-react';
 
 export const metadata = {
   title: 'Founder - Md Harun | RoGenZ',
-  description: 'Meet Md Harun, the founder of RoGenZ Media.',
+  description: 'Meet Md Harun, the visionary founder of RoGenZ Media.',
 };
 
 export default function Founder() {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-white flex flex-col selection:bg-red-100">
       <Navbar />
       
       <main className="flex-grow">
-        <div className="bg-white overflow-hidden">
-          <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
-            <div className="hidden lg:block bg-gray-50 absolute top-0 bottom-0 left-3/4 w-screen" />
-            <div className="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">
-              <div>
-                <h2 className="text-base text-red-600 font-semibold tracking-wide uppercase">Leadership</h2>
-                <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                  Md Harun
-                </h3>
-              </div>
-            </div>
-            <div className="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
-              <div className="relative lg:row-start-1 lg:col-start-2">
-                <svg
-                  className="hidden lg:block absolute top-0 right-0 -mt-20 -mr-20 text-gray-100"
-                  width={404}
-                  height={384}
-                  fill="none"
-                  viewBox="0 0 404 384"
-                  aria-hidden="true"
-                >
-                  <defs>
-                    <pattern
-                      id="de316486-4a29-4312-bdfc-fbce2132a2c1"
-                      x={0}
-                      y={0}
-                      width={20}
-                      height={20}
-                      patternUnits="userSpaceOnUse"
-                    >
-                      <rect x={0} y={0} width={4} height={4} className="text-gray-200" fill="currentColor" />
-                    </pattern>
-                  </defs>
-                  <rect width={404} height={384} fill="url(#de316486-4a29-4312-bdfc-fbce2132a2c1)" />
-                </svg>
-                <div className="relative text-base mx-auto max-w-prose lg:max-w-none">
-                  <figure>
-                    <div className="aspect-w-12 aspect-h-7 lg:aspect-none">
-                      {/* Md Harun Image */}
-                      <img 
-                        className="rounded-lg shadow-lg object-cover object-center" 
-                        src="/images/founder.jpg" 
-                        alt="Md Harun, Founder of RoGenZ Media" 
-                        width={500}
-                        height={500}
-                      />
+        {/* Hero Section with Parallax-like feel */}
+        <section className="relative py-20 lg:py-32 overflow-hidden">
+           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
+                 
+                 {/* Image Content */}
+                 <div className="lg:col-span-5 mb-12 lg:mb-0 relative">
+                    <div className="absolute -top-4 -left-4 w-24 h-24 bg-red-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+                    <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-red-800 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+                    
+                    <div className="relative rounded-2xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-[1.02]">
+                       <img 
+                         src="/images/founder.jpg" 
+                         alt="Md Harun" 
+                         className="w-full h-auto object-cover aspect-[4/5]"
+                       />
+                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                       <div className="absolute bottom-6 left-6 text-white">
+                          <p className="text-sm font-bold uppercase tracking-widest text-red-400 mb-1">Founder & CEO</p>
+                          <h2 className="text-3xl font-black">Md Harun</h2>
+                       </div>
                     </div>
-                    <figcaption className="mt-3 flex text-sm text-gray-500">
-                      <span className="ml-2">Founder of RoGenZ Media</span>
-                    </figcaption>
-                  </figure>
-                </div>
+
+                    {/* Quick Stats/Socials */}
+                    <div className="absolute -right-6 top-1/2 -translate-y-1/2 hidden lg:flex flex-col space-y-4 bg-white p-3 rounded-full shadow-xl border border-gray-100">
+                       <a href="#" className="p-2 text-gray-400 hover:text-red-600 transition-colors"><Twitter className="w-5 h-5" /></a>
+                       <a href="#" className="p-2 text-gray-400 hover:text-blue-600 transition-colors"><Linkedin className="w-5 h-5" /></a>
+                       <a href="mailto:mdharunkms51@gmail.com" className="p-2 text-gray-400 hover:text-red-600 transition-colors"><Mail className="w-5 h-5" /></a>
+                    </div>
+                 </div>
+
+                 {/* Text Content */}
+                 <div className="lg:col-span-7">
+                    <div className="max-w-2xl">
+                       <span className="inline-block px-4 py-1 rounded-full bg-red-100 text-red-700 text-xs font-bold uppercase tracking-widest mb-6">
+                          Leadership Profile
+                       </span>
+                       <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-8">
+                          Driving Change Through <br/>
+                          <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-900">Digital Empowerment.</span>
+                       </h1>
+                       
+                       <div className="relative mb-10 pl-8 border-l-4 border-red-600 italic text-xl text-gray-600 font-medium leading-relaxed">
+                          <Quote className="absolute -left-3 -top-4 w-8 h-8 text-red-100 -z-10" />
+                          "Our voice is our strongest weapon. We are not just victims of history; we are the architects of our future. Through RoGenZ, we ensure that the world hears the truth directly from us."
+                       </div>
+
+                       <div className="prose prose-lg text-gray-600 mb-10">
+                          <p>
+                             Md Harun is a visionary young leader dedicated to amplifying the voices of the Rohingya community. 
+                             Recognizing the power of digital media, he established RoGenZ to bridge the gap between 
+                             tradition and the modern digital age.
+                          </p>
+                          <p>
+                             As a member of Gen-Z, Harun brings a fresh perspective to advocacy. He believes in the power 
+                             of education, technology, and storytelling to effect change. His leadership has turned 
+                             RoGenZ into a vital platform for young journalists across the diaspora.
+                          </p>
+                       </div>
+
+                       <div className="grid grid-cols-2 gap-6 pt-6 border-t border-gray-100">
+                          <div>
+                             <p className="text-3xl font-bold text-gray-900">5+</p>
+                             <p className="text-sm text-gray-500 uppercase tracking-wider font-bold">Years of Advocacy</p>
+                          </div>
+                          <div>
+                             <p className="text-3xl font-bold text-gray-900">10k+</p>
+                             <p className="text-sm text-gray-500 uppercase tracking-wider font-bold">Community Impact</p>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+
               </div>
-              <div className="mt-8 lg:mt-0">
-                <div className="text-base max-w-prose mx-auto lg:max-w-none">
-                  <p className="text-lg text-gray-500">
-                    Md Harun is a visionary young leader dedicated to amplifying the voices of the Rohingya community.
-                    Recognizing the power of digital media, he established RoGenZ to bridge the gap between tradition and
-                    the modern digital age, ensuring that the stories, struggles, and triumphs of his people are heard globally.
-                  </p>
-                </div>
-                <div className="mt-5 prose prose-red text-gray-500 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1">
-                  <p>
-                    As a member of Gen-Z, Harun brings a fresh perspective to advocacy. He believes in the power of education,
-                    technology, and storytelling to effect change. Through RoGenZ, he aims to:
-                  </p>
-                  <ul className="list-disc pl-5 mt-4 space-y-2">
-                    <li>Provide a platform for young Rohingya journalists.</li>
-                    <li>Document human rights violations with accuracy and integrity.</li>
-                    <li>Foster a sense of community and identity among the diaspora.</li>
-                    <li>Connect the Rohingya cause with global youth movements.</li>
-                  </ul>
-                  <p className="mt-4">
-                    "Our voice is our strongest weapon," says Harun. "We are not just victims of history; we are the architects of our future."
-                  </p>
-                </div>
+           </div>
+        </section>
+
+        {/* Goals / Vision Section */}
+        <section className="bg-gray-50 py-24">
+           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-16">
+                 <h2 className="text-3xl font-black text-gray-900">Harun's Vision for RoGenZ</h2>
+                 <p className="mt-4 text-gray-600 max-w-2xl mx-auto">Strategic goals aimed at long-term empowerment and justice.</p>
               </div>
-            </div>
-          </div>
-        </div>
+
+              <div className="grid md:grid-cols-3 gap-8">
+                 {[
+                    {
+                       title: 'Journalism Training',
+                       desc: 'Providing a platform and professional training for young Rohingya journalists in the camps.',
+                       icon: '✍️'
+                    },
+                    {
+                       title: 'Evidence Gathering',
+                       desc: 'Documenting human rights violations with accuracy and integrity for global accountability.',
+                       icon: '🛡️'
+                    },
+                    {
+                       title: 'Cultural Identity',
+                       desc: 'Fostering a sense of community and preserving Rohingya identity among the youth diaspora.',
+                       icon: '🌍'
+                    }
+                 ].map((goal) => (
+                    <div key={goal.title} className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100">
+                       <div className="text-4xl mb-4">{goal.icon}</div>
+                       <h3 className="text-xl font-bold text-gray-900 mb-3">{goal.title}</h3>
+                       <p className="text-gray-600 leading-relaxed">{goal.desc}</p>
+                    </div>
+                 ))}
+              </div>
+           </div>
+        </section>
+
+        {/* Connect Section */}
+        <section className="py-20 text-center">
+           <h2 className="text-2xl font-bold mb-8 text-gray-900">Get in touch with Harun</h2>
+           <div className="flex justify-center space-x-6">
+              <a href="mailto:mdharunkms51@gmail.com" className="bg-red-600 text-white px-8 py-3 rounded-full font-bold hover:bg-red-700 transition-all flex items-center">
+                 <Mail className="mr-2 h-5 w-5" /> Send an Email
+              </a>
+              <a href="/contact" className="border-2 border-gray-900 text-gray-900 px-8 py-3 rounded-full font-bold hover:bg-gray-900 hover:text-white transition-all">
+                 Inquiry Form
+              </a>
+           </div>
+        </section>
       </main>
 
       <Footer />
