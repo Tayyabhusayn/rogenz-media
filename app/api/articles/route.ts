@@ -3,8 +3,11 @@ import connectToDatabase from '@/lib/db';
 import Article from '@/models/Article';
 
 export async function GET() {
-  await connectToDatabase();
   try {
+    if (!process.env.MONGODB_URI) {
+        return NextResponse.json({ success: true, data: [] });
+    }
+    await connectToDatabase();
     const articles = await Article.find({}).sort({ createdAt: -1 });
     return NextResponse.json({ success: true, data: articles });
   } catch (error) {
@@ -13,8 +16,11 @@ export async function GET() {
 }
 
 export async function POST(req: Request) {
-  await connectToDatabase();
   try {
+    if (!process.env.MONGODB_URI) {
+        return NextResponse.json({ success: false, message: 'Database not configured' }, { status: 500 });
+    }
+    await connectToDatabase();
     const body = await req.json();
     const article = await Article.create(body);
     return NextResponse.json({ success: true, data: article }, { status: 201 });
