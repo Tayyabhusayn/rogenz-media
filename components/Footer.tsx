@@ -29,6 +29,7 @@ export default function Footer() {
             <div>
               <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase">Social</h3>
               <ul className="mt-4 space-y-4">
+                <li><a href="https://youtube.com/@rohingyagen-z" target="_blank" rel="noopener noreferrer" className="text-base text-gray-400 hover:text-white">YouTube</a></li>
                 <li><a href="#" className="text-base text-gray-400 hover:text-white">Twitter</a></li>
                 <li><a href="#" className="text-base text-gray-400 hover:text-white">Instagram</a></li>
               </ul>
