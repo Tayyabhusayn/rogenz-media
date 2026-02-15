@@ -4,8 +4,11 @@ import User from '@/models/User';
 import bcrypt from 'bcryptjs';
 
 export async function GET() {
-  await connectToDatabase();
   try {
+    if (!process.env.MONGODB_URI) {
+       return NextResponse.json({ message: 'Database not configured' });
+    }
+    await connectToDatabase();
     const userCount = await User.countDocuments();
     if (userCount > 0) {
       return NextResponse.json({ message: 'Admin already exists' });
