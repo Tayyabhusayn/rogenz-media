@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ArticleCard from '@/components/ArticleCard';
+import NewsletterForm from '@/components/NewsletterForm';
 import connectToDatabase from '@/lib/db';
 import Article from '@/models/Article';
 import { ChevronRight, ArrowRight, PlayCircle } from 'lucide-react';
@@ -194,27 +195,7 @@ export default async function Home() {
               <p className="text-red-100 text-lg mb-8 max-w-2xl mx-auto">
                  Get the latest news, updates from the camps, and advocacy alerts delivered straight to your inbox.
               </p>
-              <form className="mt-8 sm:flex justify-center max-w-lg mx-auto">
-                 <label htmlFor="email-address" className="sr-only">Email address</label>
-                 <input 
-                   id="email-address" 
-                   name="email" 
-                   type="email" 
-                   autoComplete="email" 
-                   required 
-                   className="w-full px-5 py-3 placeholder-gray-500 focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-700 focus:ring-white border-white rounded-md sm:max-w-xs" 
-                   placeholder="Enter your email" 
-                 />
-                 <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-                    <button 
-                      type="submit" 
-                      className="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-red-600 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-red-700 focus:ring-white transition-colors"
-                      onClick={(e) => { e.preventDefault(); alert("Newsletter subscription coming soon!"); }}
-                    >
-                       Subscribe
-                    </button>
-                 </div>
-              </form>
+              <NewsletterForm />
               <p className="mt-3 text-sm text-red-200">
                  We care about the protection of your data. Read our <a href="#" className="text-white underline font-medium">Privacy Policy</a>.
               </p>
