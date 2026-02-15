@@ -28,7 +28,8 @@ export default function Contact() {
                   <Phone className="h-6 w-6 text-gray-400" aria-hidden="true" />
                 </div>
                 <div className="ml-3 text-base text-gray-500">
-                  <p>+880 1859-371036</p>
+                  <p>+91 88510 64248 (India)</p>
+                  <p>+880 1859-371036 (BD)</p>
                   <p className="mt-1">Mon-Fri 9am to 6pm</p>
                 </div>
               </div>
