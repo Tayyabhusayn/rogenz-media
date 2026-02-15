@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ContactForm from './ContactForm';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
 export const metadata = {
@@ -49,34 +50,7 @@ export default function Contact() {
               </div>
             </div>
           </div>
-          <div className="mt-12 sm:mt-16 md:mt-0">
-            <h2 className="text-2xl font-extrabold text-gray-900 sm:text-3xl">Send us a message</h2>
-            <form action="#" method="POST" className="mt-9 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
-              <div className="sm:col-span-2">
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
-                <div className="mt-1">
-                  <input type="text" name="name" id="name" autoComplete="name" className="py-3 px-4 block w-full shadow-sm focus:ring-red-500 focus:border-red-500 border-gray-300 rounded-md" />
-                </div>
-              </div>
-              <div className="sm:col-span-2">
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
-                <div className="mt-1">
-                  <input type="email" name="email" id="email" autoComplete="email" className="py-3 px-4 block w-full shadow-sm focus:ring-red-500 focus:border-red-500 border-gray-300 rounded-md" />
-                </div>
-              </div>
-              <div className="sm:col-span-2">
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
-                <div className="mt-1">
-                  <textarea id="message" name="message" rows={4} className="py-3 px-4 block w-full shadow-sm focus:ring-red-500 focus:border-red-500 border border-gray-300 rounded-md"></textarea>
-                </div>
-              </div>
-              <div className="sm:col-span-2">
-                <button type="submit" className="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
-                  Send Message
-                </button>
-              </div>
-            </form>
-          </div>
+          <ContactForm />
         </div>
       </main>
 

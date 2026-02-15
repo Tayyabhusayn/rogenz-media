@@ -37,6 +37,7 @@ export default function AdminDashboard() {
 
     try {
       const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+      const token = localStorage.getItem('token');
       
       const res = await axios.post('/api/articles', {
         title,
@@ -46,6 +47,10 @@ export default function AdminDashboard() {
         author,
         image,
         featured: false // Default to false for now
+      }, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
       });
 
       if (res.data.success) {
