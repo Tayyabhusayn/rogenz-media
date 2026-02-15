@@ -35,6 +35,9 @@ export default async function Home() {
     <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-red-100 selection:text-red-900 overflow-x-hidden">
       <Navbar />
       
+      {/* Scroll Progress Bar at the top */}
+      <div className="h-0" />
+      
       {/* Breaking News Ticker */}
       <div className="bg-black text-white py-2 overflow-hidden whitespace-nowrap relative">
          <div className="absolute left-0 top-0 bottom-0 bg-red-600 px-3 flex items-center z-10 font-bold uppercase tracking-wider text-xs md:text-sm shadow-md">
