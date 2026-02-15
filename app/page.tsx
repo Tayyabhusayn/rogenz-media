@@ -7,7 +7,10 @@ import Article from '@/models/Article';
 
 async function getArticles() {
   try {
-    if (!process.env.MONGODB_URI) return [];
+    if (!process.env.MONGODB_URI) {
+        console.warn("MONGODB_URI not set, returning empty list");
+        return [];
+    }
     await connectToDatabase();
     const articles = await Article.find({ featured: true }).sort({ createdAt: -1 }).limit(3);
     return JSON.parse(JSON.stringify(articles));
@@ -27,12 +30,9 @@ export default async function Home() {
       {/* Hero Section */}
       <div className="relative bg-red-700">
         <div className="absolute inset-0">
-          <img
-            className="w-full h-full object-cover opacity-30"
-            src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-            alt="News background"
-          />
-          <div className="absolute inset-0 bg-red-700 mix-blend-multiply" aria-hidden="true" />
+          {/* Fallback pattern if image fails */}
+          <div className="absolute inset-0 bg-red-800 opacity-50 pattern-grid-lg"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-red-900 to-red-600 opacity-90"></div>
         </div>
         <div className="relative max-w-7xl mx-auto py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
@@ -68,9 +68,25 @@ export default async function Home() {
             ))}
           </div>
         ) : (
-          <div className="text-center py-12 bg-white rounded-lg shadow">
-            <p className="text-gray-500 text-lg">No articles found. Please configure the database and add content via the Admin Panel.</p>
-            <p className="text-sm text-gray-400 mt-2">(Set MONGODB_URI in .env.local)</p>
+          <div className="text-center py-12 bg-white rounded-lg shadow border border-gray-200">
+            <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+            </svg>
+            <h3 className="mt-2 text-sm font-medium text-gray-900">No articles yet</h3>
+            <p className="mt-1 text-sm text-gray-500">Get started by creating a new article in the Admin Panel.</p>
+            <div className="mt-6">
+              <Link
+                href="/admin"
+                className="inline-flex items-center px-4 py-2 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+              >
+                Go to Admin Panel
+              </Link>
+            </div>
+            {!process.env.MONGODB_URI && (
+                 <p className="mt-4 text-xs text-red-500 bg-red-50 p-2 rounded inline-block">
+                    ⚠️ Database Not Configured: Please add MONGODB_URI to Vercel Environment Variables.
+                 </p>
+            )}
           </div>
         )}
       </main>
