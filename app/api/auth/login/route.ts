@@ -7,10 +7,13 @@ import jwt from 'jsonwebtoken';
 const JWT_SECRET = process.env.JWT_SECRET || 'fallback-secret-key';
 
 export async function POST(req: Request) {
-  await connectToDatabase();
-  const { email, password } = await req.json();
-
   try {
+    if (!process.env.MONGODB_URI) {
+      return NextResponse.json({ success: false, message: 'Database not configured' }, { status: 500 });
+    }
+    await connectToDatabase();
+    const { email, password } = await req.json();
+
     const user = await User.findOne({ email });
     if (!user) {
       return NextResponse.json({ success: false, message: 'Invalid credentials' }, { status: 400 });

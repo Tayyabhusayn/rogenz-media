@@ -14,7 +14,8 @@ interface Article {
 
 export default function ArticleCard({ article }: { article: Article }) {
   // Strip HTML tags for excerpt
-  const excerpt = article.content.replace(/<[^>]+>/g, '').substring(0, 150) + '...';
+  const content = article.content || '';
+  const excerpt = content.replace(/<[^>]+>/g, '').substring(0, 150) + '...';
 
   return (
     <div className="flex flex-col overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 bg-white">

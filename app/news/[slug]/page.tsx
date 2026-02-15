@@ -7,15 +7,21 @@ import { format } from 'date-fns';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const slug = (await params).slug;
-  await connectToDatabase();
-  const article = await Article.findOne({ slug });
-  
-  if (!article) return { title: 'Not Found' };
+  if (!process.env.MONGODB_URI) return { title: 'RoGenZ | News' };
 
-  return {
-    title: `${article.title} | RoGenZ`,
-    description: article.content.substring(0, 160),
-  };
+  try {
+    await connectToDatabase();
+    const article = await Article.findOne({ slug });
+  
+    if (!article) return { title: 'Not Found' };
+
+    return {
+      title: `${article.title} | RoGenZ`,
+      description: article.content.substring(0, 160),
+    };
+  } catch (error) {
+    return { title: 'RoGenZ | News' };
+  }
 }
 
 async function getArticle(slug: string) {
