@@ -128,7 +128,7 @@ export default async function Home() {
                     {/* Video Placeholder Card */}
                     <div className="relative rounded-2xl shadow-2xl overflow-hidden group cursor-pointer aspect-video bg-gray-900">
                        <img 
-                         src="https://images.unsplash.com/photo-1532375810709-75b1da00537c?q=80&w=2076&auto=format&fit=crop" 
+                         src="/images/flag.jpg" 
                          alt="Mission Video Thumbnail" 
                          className="w-full h-full object-cover opacity-80 group-hover:opacity-60 transition-opacity duration-300"
                        />
